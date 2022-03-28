@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "wg-easy.fullname" . }}
+  labels:
+    {{- include "wg-easy.labels" . | nindent 4 }}
+data:
+  WG_HOST: {{ .Values.wgEasy.host | quote }}
+  WG_PORT: {{ .Values.service.wireguard.port | quote }}
