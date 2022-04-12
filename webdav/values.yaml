@@ -25,6 +25,12 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
+auth:
+  enabled: true
+  users:
+    - username: admin
+      password: admin
+
 service:
   type: ClusterIP
   port: 80

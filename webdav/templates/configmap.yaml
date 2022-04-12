@@ -8,5 +8,9 @@ data:
   config.yaml: |
     address: 0.0.0.0
     port: 80
-    auth: true
+    auth: {{ .Values.auth.enabled }}
+    {{- if .Values.auth.enabled }}
+    users:
+      {{- toYaml .Values.auth.users | nindent 6 }}
+    {{- end -}}
 
